@@ -5,14 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
 using System.Windows.Media;
-using System.Windows;
 
 namespace SchiffeVersenken
 {
     class Schiff
     {
         private List<Rectangle> teile;
-        private List<Rectangle> trefferpunkte;
+        private List<Rectangle> trefferpunkte=new List<Rectangle>();
 
         public Schiff(List<Rectangle> teile)
         {
@@ -28,47 +27,15 @@ namespace SchiffeVersenken
                 if (trefferpunkte.Count == teile.Count)
                 {
                     string type = "";
-                    switch (getType())
-                    {
-                        case 0:
-                            type = "Schlachtschiff";
-                            break;
-
-                        case 1:
-                            type = "Kreuzer";
-                            break;
-
-                        case 2:
-                            type = "Zerstörer";
-                            break;
-
-                        case 3:
-                            type = "U-Boot";
-                            break;
-                    }
-                    MessageBox.Show("Ein " + type + " wurde versenkt!");
+                    switch(getType())
                 }
-               }
             }
-    }
+        }
 
-        private int getType()
+        private void getType()
         {
             int length = teile.Count;
-            switch(length)
-            {
-                case 5:
-                    return 0;
-                case 3:
-                    return 1;
-                case 2:
-                    return 2;
-                case 1:
-                    return 3;
 
-                default:
-                    return 4;
-            }
         }
         public List<Rectangle> getTrefferpunkte()
         {
@@ -79,4 +46,4 @@ namespace SchiffeVersenken
             return this.teile;
         }
     }
-
+}
